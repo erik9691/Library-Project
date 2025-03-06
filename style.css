@@ -1,0 +1,50 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+body
+{
+    background-color: #0F0F0F;
+}
+.shelf
+{
+    background-color: black;
+    width: 50vw;
+    margin: 2% auto;
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(6rem, 1fr));
+    column-gap: 0;
+    row-gap: 20px;
+    padding: 25px 20px;
+    border: 20px solid rgb(112, 61, 20);
+    border-radius: 6px;
+}
+.book, .empty
+{
+    background-color: rgb(179, 15, 15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 15ch;
+    width: 4rem;
+    padding: 10px;
+    border: 4px solid rgb(63, 30, 11);
+    border-bottom: 10px solid rgb(112, 61, 20);
+    p
+    {
+        writing-mode:sideways-lr;
+        font-weight: 600;
+        word-wrap: break-word;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        text-align: center;
+        line-height: 1rem;
+    }
+}
+.empty
+{
+    background-color: black;
+}
