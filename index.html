@@ -40,5 +40,20 @@
         <div class="empty"></div>
         <div class="empty"></div>
     </div>
+    <form class="add-form" action="index.js" method="post">
+        <label for="book-text">Book</label>
+        <input type="text" name="bookName" id="book-text" required>
+
+        <label for="author-text">Author</label>
+        <input type="text" name="author" id="author-text" required>
+
+        <label for="pages-number">Pages</label>
+        <input type="number" name="pages" id="pages-number" required>
+
+        <label for="read-checkbox">Read</label>
+        <input type="checkbox" name="hasRead" id="read-checkbox">
+
+        <button type="submit">Add</button>
+    </form>
 </body>
 </html>

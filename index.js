@@ -1,7 +1,22 @@
 let myLibrary = [];
 
 let shelfSpaces = document.querySelector(".shelf").children;
+const addForm = document.querySelector(".add-form");
 
+addForm.addEventListener("submit", function (e)
+{
+    e.preventDefault();
+
+    const bookName = document.querySelector('input[name="bookName"]').value;
+    const author = document.querySelector('input[name="author"]').value;
+    const pages = document.querySelector('input[name="pages"]').value;
+    const hasRead = document.querySelector('input[name="hasRead"]').checked;
+
+    addBookToLibrary(bookName,author,pages,hasRead);
+    displayLibraryOnPage(myLibrary);
+
+    addForm.reset();
+});
 
 function Book(title, author, pages, read)
 {
