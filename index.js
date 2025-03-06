@@ -46,18 +46,35 @@ function displayLibraryOnPage()
         {
             shelfSpaces[i].className = "book"
 
+            shelfSpaces[i].id = book.id;
+
             let bookTitle = document.createElement("p");
             bookTitle.innerText = book.title;
 
             let bookRemove = document.createElement("button");
             bookRemove.innerText = "X";
             bookRemove.className = "remove";
-            bookRemove.id = book.id;
+
+            let bookRead = document.createElement("input");
+            bookRead.type = "image";
+            bookRead.className = "read-button";
+            if (book.read) 
+            {
+                bookRead.src = "icons/read.svg";
+                bookRead.alt = "Read Icon";
+            }
+            else
+            {
+                bookRead.src = "icons/not-read.svg";
+                bookRead.alt = "Not Read Icon";
+            }
 
             shelfSpaces[i].appendChild(bookTitle);
             shelfSpaces[i].appendChild(bookRemove);
+            shelfSpaces[i].appendChild(bookRead);
 
             addRemoveListeners(bookRemove);
+            addReadListeners(bookRead);
         }
 
     }
@@ -74,7 +91,7 @@ function addRemoveListeners (bookRemove)
         //remove from array
         for (const [i, book] of myLibrary.entries()) 
         {
-            if (book.id === e.target.id)
+            if (book.id === e.target.parentElement.id)
             {
                 myLibrary.splice(i, 1);
                 break;
@@ -98,6 +115,31 @@ function addRemoveListeners (bookRemove)
     });
 }
 
+function addReadListeners (bookRead)
+{
+    bookRead.addEventListener("click", function (e)
+    {
+        for (const [i, book] of myLibrary.entries()) 
+        {
+            if (book.id === e.target.parentElement.id)
+            {
+                if (book.read)
+                {
+                    e.target.src = "icons/not-read.svg";
+                    e.target.alt = "Not Read Icon";
+                    book.read = false;
+                }
+                else
+                {
+                    e.target.src = "icons/read.svg";
+                    e.target.alt = "Read Icon";
+                    book.read = true;
+                }
+                break;
+            }
+        }
+    });
+}
 
 addBookToLibrary("Harry Potter","J.K. Rowling", "329", false);
 addBookToLibrary("Lord of the Rings","J.R.R. Tolkien", "613", true);

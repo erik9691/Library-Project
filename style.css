@@ -63,12 +63,19 @@ button
     position:absolute;
     top: 0;
     right: 0;
-    background-color: red;
+    background-color: rgb(179, 15, 15);
     border: none;
     padding: 4px;
     font-weight: 600;
     font-family: sans-serif;
     font-size: 17px;
+}
+.read-button
+{
+    position:absolute;
+    top: 0;
+    left: 0;
+    width: 30px;
 }
 
 .add-form
